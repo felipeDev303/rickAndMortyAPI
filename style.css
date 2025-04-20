@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
+/* Definición de Variables Globales (Colores del Tema) */
+:root {
+  --primary-color: #00ffae; /* Verde Neón Principal */
+  --primary-color-darker: #00cca3; /* Un tono más oscuro para :active */
+  --primary-color-lighter: #33ffd6; /* Un tono más claro para :hover */
+  --background-color: #000;
+  --text-color: #fff;
+  --text-color-muted: #ccc;
+  --card-bg-color: rgba(0, 255, 170, 0.1);
+  --card-border-color: rgba(0, 255, 170, 0.5);
+  --glow-color: rgba(0, 255, 170, 0.6); /* Sombra/Glow un poco más definida */
+  --glow-color-hover: rgba(0, 255, 170, 0.8); /* Sombra más intensa en hover */
+}
+
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  background: var(--card-bg-color);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--card-border-color);
+  border-radius: 20px;
+  padding: 25px 30px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 25px var(--glow-color);
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px var(--primary-color);
+  font-weight: 700;
+}
+
+h2 {
+  /* Este estilo se usará cuando JS añada el h2 del personaje */
+  color: var(--text-color);
+  margin-top: 10px; /* Reducido margen para que quede mejor con la imagen */
+  font-weight: 500;
+}
+
+p {
+  color: var(--text-color-muted);
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  margin-bottom: 20px; /* Añadir espacio debajo antes del resultado */
+  padding: 12px 28px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--glow-color);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-lighter);
+  box-shadow: 0 0 25px var(--glow-color-hover);
+  transform: scale(1.05);
+}
+
+.btn:active {
+  background-color: var(--primary-color-darker);
+  transform: scale(0.98);
+  box-shadow: 0 0 10px var(--glow-color);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+img {
+  /* Estilo para la imagen que añadirá JS */
+  display: block; /* Para que el margin auto funcione */
+  margin: 0 auto 10px auto; /* Centrar imagen y espacio abajo */
+  max-width: 100%; /* Asegurar que no se desborde */
+  border-radius: 50%; /* Mantenido del JS inline */
+  width: 150px; /* Mantenido del JS inline */
+}
+
+img:hover {
+  /* Ahora sí podría aplicar si el usuario pone el ratón encima */
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para mensajes de error */
+.error {
+  color: #ff6b6b; /* Un color rojo claro */
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
